@@ -3,54 +3,65 @@ layout: default
 title: Home
 ---
 
-# Consumer Onboarding Drop-off Survey 2025 — Analysis
+# Why Don't New Customers Complete Their First Transaction?
 
-## Top Points of Interest
+**Consumer Onboarding Drop-off Survey 2025**
+
+> Survey of 1,331 new Wise customers (US, UK, Philippines) who registered in October 2025.
+> Data collected: 22 October – 25 November 2025.
+> Enriched with lifetime revenue and onboarding flow data from Snowflake.
+
+---
+
+## The 7 things you should know
 
 ### 1. Most "drop-offs" aren't actually lost
-81% of respondents who self-reported "not yet" and 77% who said "no" have **actually adopted a job** per onboarding flow data. The survey measured intent-specific non-completion, not true churn. The real non-adopter population is ~30 customers, not 147.
 
-### 2. Trust hesitators are your highest-value customers
-Customers who hesitated due to trust/legitimacy concerns have **double the LTV** (£50 median) of those who didn't hesitate (£26). They're cautious, high-value users — worth reassuring, not rushing. (p=0.007)
+We surveyed customers ~30 days after registration. 147 said they hadn't completed their intended task. But when we checked the behavioural data, **81% of them had already used Wise** — just for a different product than they originally intended. The true non-adopter count is ~27 people, not 147.
 
-### 3. Signup friction depresses long-term value more than it blocks adoption
-Those who reported signup difficulty adopt at 86% (vs 91%) — a small gap. But their lifetime revenue is **30% lower** (£19 vs £28, p<0.0001). Friction doesn't stop people; it sets a negative tone that persists.
+### 2. The people who hesitate the most are your best customers
 
-### 4. Card awareness is the most actionable cross-sell lever
-21% of send/receive users don't know Wise offers a card. Those unaware customers have median LTV of £17 vs £35 for those who ordered one. Card-aware users also adopt faster (same day vs 1+ day, p=0.0002).
+Customers who said "yes, something caused me to hesitate" have **double the lifetime revenue** (£50 median) when the hesitation was about trust/legitimacy. They're careful evaluators who commit deeply once satisfied. Don't optimise hesitation out of the journey — address the specific concern (trust signals, transparent pricing) and let them proceed at their pace.
 
-### 5. The "regularly" question (Q10) has strong signal but ambiguous causality
-"Regular" intent users generate 2.5x the revenue of "not sure" users (£34 vs £13, p=0.0006). But the team flagged that "regularly" may be interpreted retrospectively. Behavioural data confirms they do adopt faster, but the direction of causality remains unclear.
+### 3. Signup friction doesn't block people — it makes them less valuable long-term
 
-### 6. Invest/Assets has a 47% drop-off rate
-The only product with a meaningfully different drop-off pattern. Card/Send/Receive are all 8-10%. This is a product-gap issue, not an onboarding issue.
+86% of customers who reported difficulty still adopted. But their lifetime revenue is **30% lower** (£19 vs £28). The friction sets a negative first impression that persists in engagement patterns. Smoothing the experience won't dramatically change conversion rates, but it will increase how much each customer uses Wise over time.
 
-### 7. ID verification is the #1 cited friction theme (27% of difficulty reports)
-Among those who found signup difficult, verification/ID/documents is the top theme. Yet 100% of verification-hesitators eventually adopt — the friction is painful but not terminal.
+### 4. Tell send/receive users about the card
 
----
+21% of customers who came to send or receive money don't know Wise offers a card. Those unaware customers generate half the revenue (£17 vs £35) of those who ordered one. They also adopt slower. This is the most directly actionable finding in the survey.
 
-## Navigation
+### 5. Invest/Assets has a product-market fit problem at onboarding
 
-- [Data Cleaning & Quality](cleaning.md)
-- [Research Objective 1: Why customers don't convert](objective1.md)
-- [Research Objective 2: Segment differences](objective2.md)
-- [Full Question Breakdown](question-breakdown.md)
-- [Correlational Analysis](correlations.md)
-- [Job Adoption Analysis](adoption.md)
-- [Hesitation Deep-Dive](hesitation.md)
-- [Methodology & Limitations](methodology.md)
+47% of customers who came to invest dropped off — vs 8-10% for card/send/receive. This isn't an onboarding UX issue. The product either doesn't meet expectations set before signup, or there's a gap between "I want to invest" and "I can invest with Wise."
+
+### 6. Speed perception matters more than speed reality
+
+Customers who hesitated because they expected Wise to be slow have the **lowest lifetime value** (£9 median) and take the longest to adopt (8 days). Their initial framing of "this will be slow" seems to stick. Customers who hesitated about trust but were reassured became the highest-value segment. First impressions about speed seem harder to reverse than first impressions about trust.
+
+### 7. Recent movers are your highest-value new customers
+
+Customers who moved country in the last 6 months generate £42 median revenue — 60% more than the overall median. Their needs are acute and immediate. If you can identify them during onboarding, they're worth fast-tracking.
 
 ---
 
-## Study Context
+## Pages
 
-| | |
+| Page | What's in it |
 |---|---|
-| **Research goal** | Understand why consumers sign up but don't convert within 30 days |
-| **Markets** | US, UK, Philippines (English only) |
-| **Sample** | 1,331 cleaned responses (from 1,513 raw) |
-| **Period** | Oct 22 – Nov 25, 2025 |
-| **Target** | 385 minimum (achieved 3.5x target) |
-| **Responsible** | Peter Yeomans |
-| **Team** | Consumer Onboarding |
+| [What stops customers converting?](objective1.md) | The main reasons, ranked by how many people they affect |
+| [Do different customer segments behave differently?](objective2.md) | Age, expat status, task type — what matters and what doesn't |
+| [Every question, with revenue data](question-breakdown.md) | Full distributions for all survey questions, with lifetime value by answer |
+| [Statistical relationships](correlations.md) | What predicts higher revenue? What predicts drop-off? |
+| [What does the onboarding flow data show?](adoption.md) | Matching survey responses to actual product adoption in Snowflake |
+| [The hesitation deep-dive](hesitation.md) | Not all hesitation is bad — breaking down what kind matters |
+| [How we cleaned the data](cleaning.md) | What we removed and why |
+| [Methodology & limitations](methodology.md) | What this data can and can't tell you |
+
+---
+
+## Context
+
+This survey was part of a broader initiative to understand why ~69% of new consumer customers don't convert within 30 days of registration. We reached customers across US, UK, and Philippines (English-language only) with a prize-draw incentive. The survey ran for approximately one month.
+
+**Team:** Consumer Onboarding · **Lead:** Peter Yeomans · **Analysis:** Christina Cheadle

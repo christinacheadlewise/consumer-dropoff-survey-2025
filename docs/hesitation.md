@@ -1,107 +1,108 @@
-# Hesitation Deep-Dive
+---
+layout: default
+title: Hesitation Deep-Dive
+---
 
-## Definition
+# Not All Hesitation Is Bad
 
-**Hesitation** = Q12 (QID24): "Did anything in the process of [task] cause you to hesitate?"
+13% of customers (169 people) said something caused them to hesitate during the process. Counterintuitively, hesitators have **higher lifetime revenue** than non-hesitators (£33 vs £26, p=0.056).
 
-- Shown to: respondents who completed their task (Q11=Yes) or plan to (Q11=Not yet)
-- "Yes" respondents: 169 (13% of those shown)
-- These are people who noticed friction, articulated it, **but pushed through anyway**
+But when you break hesitation into types, the picture gets more nuanced. Some types of hesitation signal a high-value customer doing due diligence. Other types signal a problem that depresses long-term value.
 
-## Counterintuitive Finding: Hesitators Have Higher LTV
+---
 
-| Group | Median Revenue | Mean Revenue | n |
-|---|---|---|---|
-| No hesitation | £25.91 | £58.63 | 1,134 |
-| **Hesitated** | **£32.79** | **£119.25** | **169** |
+## How we defined hesitation
 
-Mann-Whitney: p=0.056 (borderline significant)
+Q12: *"Did anything in the process of [their task] cause you to hesitate?"*
 
-This is not a data error. Hesitators are engaged, discerning customers who evaluate carefully and then commit deeply. The hesitation is a signal of engagement, not disengagement.
+This was only shown to people who completed their task or plan to. So these are customers who **pushed through** whatever made them pause — we're measuring overcome friction, not abandonment.
 
-## Sub-Type Breakdown
+---
 
-| Hesitation type | n | Med LTV | vs Baseline | Adopted % | Med days | p (LTV) |
-|---|---|---|---|---|---|---|
-| **NO HESITATION (baseline)** | 1,134 | £25.91 | — | 91.0% | 1 | — |
-| **Trust / legitimacy** | 27 | **£50.45** | **+£24.54** | 85.2% | 1 | **0.007 *** |
-| Fees / pricing | 46 | £33.44 | +£7.53 | 87.0% | 4 | 0.32 |
-| Card issues | 19 | £31.38 | +£5.47 | 84.2% | 0 | 0.23 |
-| Verification / ID | 13 | £17.78 | -£8.13 | 100% | 0 | 0.64 |
-| Confusion / UX | 9 | £20.13 | -£5.78 | 88.9% | 5 | 0.85 |
-| **Waiting / timing** | 11 | **£8.77** | **-£17.14** | **81.8%** | **8** | **0.04 *** |
-| Nothing / positive | 9 | £31.15 | +£5.24 | 88.9% | 1 | — |
-| Other | 29 | £48.21 | +£22.30 | 85.2% | 1 | 0.06 |
+## The breakdown
 
-## Key Insights by Type
+| Hesitation type | n | Median LTV | vs No hesitation (£26) | Days to adopt | Adopt rate |
+|---|---|---|---|---|---|
+| **Trust / legitimacy** | **27** | **£50** | **+£24 (p=0.007)** | **1 day** | **85%** |
+| Other (unclassified) | 29 | £48 | +£22 (p=0.06) | 1 day | 85% |
+| Fees / pricing | 46 | £33 | +£8 (p=0.32) | 4 days | 87% |
+| Card issues | 19 | £31 | +£5 (p=0.23) | 0 days | 84% |
+| Confusion / UX | 9 | £20 | -£6 (p=0.85) | 5 days | 89% |
+| Verification / ID | 13 | £18 | -£8 (p=0.64) | 0 days | 100% |
+| **Waiting / timing** | **11** | **£9** | **-£17 (p=0.04)** | **8 days** | **82%** |
 
-### Trust / Legitimacy Hesitators (n=27) — HIGHEST VALUE
+---
 
-**Median LTV: £50.45 (2x baseline, p=0.007)**
+## What each type means for the product
 
-These customers hesitated because:
-- "Was unsure if safe and legitimate initially"
-- "I thought its not legitimate"
-- "Hesitant because I found Wise via search and always a concern re scams"
-- "The process was very quick and I was initially unsure of the transfer and identity info"
+### Trust hesitators → Reassure them (highest value)
 
-**Profile:** Cautious, high-value users who did due diligence. Once trust was established, they committed heavily. They adopt at normal speed (1 day median) — the hesitation happens mentally, not behaviourally.
+> *"Was unsure if safe and legitimate initially"*
+> *"Hesitant because I found Wise via search and always a concern re scams"*
+> *"I thought its not legitimate"*
 
-**Implication:** Trust signals at signup (regulatory credentials, social proof, security messaging) could reduce the hesitation moment without losing these customers. They're already your highest-LTV segment — reducing their friction could accelerate an already-strong trajectory.
+These are cautious, high-value people doing due diligence before committing money to a new platform. Once they're satisfied, they engage heavily. They adopt at normal speed (1 day) — the hesitation happens in their head, not in their behaviour.
 
-### Fees / Pricing Hesitators (n=46) — HIGH VALUE, SLOW TO ADOPT
+**Design implication:** Trust signals during onboarding (regulatory badges, security messaging, social proof from similar users) help these customers resolve their mental checklist faster. Don't remove friction; add reassurance alongside it.
 
-**Median LTV: £33.44 (+£7.53 vs baseline)**
+---
 
-These customers hesitated because:
-- "Fee for transfer into wise accounts"
-- "Cost of the card"
-- "Being new to the product, wasn't quite comfortable loading the card with big amounts"
-- "For now the exchange rate is low. Waiting for that"
+### Fees/pricing hesitators → Show the value (high value, slow start)
 
-**Profile:** Price-sensitive but ultimately high-value. They take longer to adopt (4 days vs 1 day) as they evaluate whether Wise is competitive. Once satisfied, they transact significantly.
+> *"Fee for transfer into wise accounts"*
+> *"Cost of the card"*
+> *"Being new to the product, wasn't quite comfortable loading the card with big amounts"*
 
-**Implication:** Clearer upfront pricing or fee comparisons could reduce the deliberation window.
+They take longer to adopt (4 days vs 1 day) as they compare Wise to alternatives. But once they decide Wise is competitive, they transact significantly.
 
-### Waiting / Timing Hesitators (n=11) — LOWEST VALUE, SLOWEST
+**Design implication:** Upfront fee comparison or "you saved £X vs your bank" framing could compress the deliberation window. These customers are already doing the maths — help them.
 
-**Median LTV: £8.77 (p=0.04, significantly below baseline)**
+---
 
-These customers hesitated because:
-- "First, because I thought that using Wise will take DAAAAYS"
-- "The delay"
-- "Longer waiting time but it's okay"
+### Waiting/timing hesitators → Fix their speed expectations (lowest value)
 
-**Profile:** Expectation mismatch about speed. They adopt slowly (8 days median) and remain low-engagement long-term. Their initial perception of slowness may have created a lasting impression that Wise is "slow" even after experiencing fast transfers.
+> *"First, because I thought that using Wise will take DAAAAYS for the money to be received"*
+> *"The delay"*
+> *"Longer waiting time but it's okay"*
 
-**Implication:** Speed expectation-setting during onboarding. If they expect days and get hours, delight them — if they expect instant and get hours, disappoint them. The framing matters.
+They expected Wise to be slow, and this first impression seems to stick. They adopt slowly (8 days), use the product less, and generate the lowest revenue of any group. Even after experiencing fast transfers, they may carry a "slow" mental model.
 
-### Verification / ID Hesitators (n=13) — ALL ADOPT, LOW LTV
+**Design implication:** Speed expectation-setting matters at onboarding. "Your transfer will typically arrive in minutes/hours" before they initiate — not after. If they arrive expecting days and it takes hours, that's a positive surprise. If they arrive expecting instant and it takes hours, that's a disappointment. Frame accordingly.
 
-**Median LTV: £17.78 | Adoption rate: 100%**
+---
 
-Every single one pushed through verification friction and adopted. But their low LTV suggests the friction set a negative tone.
+### Verification hesitators → They all push through, but disengage after
 
-**Implication:** The verification process doesn't block adoption — it depresses long-term engagement. Making verification smoother won't increase conversion (already 100%) but could increase downstream value.
+> *"Having to get a long line of identifying data right (ie iban, etc)"*
+> *"I was unsure and still am unsure if I can use the PayId"*
 
-### Confusion / UX Hesitators (n=9) — SLOW, LOW VALUE
+100% adoption rate — every single one made it through. But their lifetime revenue (£18) is below baseline (£26). The friction doesn't block them; it sets a tone.
 
-**Median LTV: £20.13 | Days to adopt: 5**
+**Design implication:** Verification is a necessary step you can't remove. But the experience of verification (how long it takes, how clear the status is, what happens during the wait) shapes downstream engagement. A smoother verification won't increase conversion — it could increase lifetime value.
 
-- "I found the whole process confusing & not straight forward"
-- "At first I found the use of the app complicated, not a lot of signposting"
+---
 
-Small group but these are the customers whose LTV you could most improve with better UX, because the friction is entirely within Wise's control.
+### Confusion/UX hesitators → Fixable friction (small group)
 
-## Summary Framework
+> *"I found the whole process confusing & not straight forward"*
+> *"Not a lot of signposting and I had to figure out myself"*
+> *"It was hard to navigate the website to understand the best way to use wise"*
 
-| Hesitation type | Signal | Action |
+Only 9 people, but these are the ones whose friction is entirely within Wise's control. They take 5 days to adopt and land below-average on LTV.
+
+**Design implication:** Classic UX improvements — better navigation, clearer signposting, progressive disclosure. Small group but zero external dependency.
+
+---
+
+## Summary for prioritisation
+
+| Type | Fix it? | Why |
 |---|---|---|
-| Trust | High-value customer doing due diligence | Add trust signals, don't rush |
-| Fees | Price-sensitive evaluator | Clearer fee comparisons upfront |
-| Waiting | Expectation mismatch | Speed messaging during onboarding |
-| Verification | Painful but survivable | Smoother flow → higher downstream value |
-| Confusion/UX | Solvable friction | Better signposting, clearer navigation |
-| Card issues | Delivery/acceptance gap | Faster delivery, wider acceptance comms |
+| Trust | **Reassure, don't remove** | These become your best customers once convinced |
+| Fees | Clarify pricing earlier | Compresses deliberation, already high-value |
+| Speed/timing | Set expectations upfront | Lowest-value group — perception fix, not product fix |
+| Verification | Make the wait clearer | Won't change conversion, may lift downstream value |
+| UX confusion | Standard UX improvements | Small impact, easy wins |
+| Card delivery | Logistics optimisation | Outside onboarding flow |
 
-[← Back to Index](index.md)
+[← Back to home](index.md)

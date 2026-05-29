@@ -1,83 +1,85 @@
-# Research Objective 2: Segment Differences
+---
+layout: default
+title: Segment Differences
+---
 
-> Identify if there is a correlation between consumer segments and non-conversion factors.
+# Do Different Customer Segments Behave Differently?
 
-## Segment-Level Drop-Off Rates
+> Research question: Is there a correlation between consumer segments and non-conversion factors? Are we losing certain groups disproportionately?
 
-### No Significant Differences By:
+## The short answer
 
-| Segment | Test | p-value | Finding |
+**No demographic segment drops off at a meaningfully higher rate.** Age, expat status, and prior provider experience don't predict whether someone converts. The only significant predictor is what product they came for — and specifically, Invest/Assets customers drop off at 5x the rate of everyone else.
+
+---
+
+## What doesn't predict drop-off
+
+| Segment | Drop-off rate range | Statistical test | Result |
 |---|---|---|---|
-| Age | Chi-square | 0.55 | Uniform 7–13% across all age groups |
-| Countries lived in | Chi-square | 0.23 | No expat vs non-expat difference |
-| Prior provider use | Chi-square | 0.50 | Similar for new and switchers |
+| Age (18-24 through 65+) | 7–13% | Chi-square p=0.55 | No difference |
+| Countries lived in (1 through 5+) | 3–14% | Chi-square p=0.23 | No difference |
+| Used another provider before | 10% vs 11% | Chi-square p=0.50 | No difference |
 
-### Significant Difference:
+The onboarding challenge is uniform across demographics. You don't need age-specific or expat-specific onboarding flows to solve the drop-off problem.
 
-| Segment | Test | p-value | Effect size |
+---
+
+## What does predict drop-off
+
+### Task type is the only meaningful predictor
+
+| Task | Total customers | Drop-off rate | Effect |
 |---|---|---|---|
-| **Task type (Q6)** | Chi-square | <0.0001 | Cramér's V = 0.193 |
+| Card | 616 | 10.1% | Baseline |
+| Send | 268 | 9.3% | Baseline |
+| Receive | 298 | 8.1% | Baseline |
+| **Invest** | **30** | **46.7%** | **5x baseline** |
+| Other | 119 | 18.5% | 2x baseline |
 
-Task type is the only predictor of drop-off with a meaningful effect size (approaching "medium").
+Chi-square: p<0.0001, Cramér's V = 0.19 (approaching medium effect)
 
-## Task Type Detail
+---
 
-| Task | n | Drop-off rate | Drop-off LTV | Converted LTV |
-|---|---|---|---|---|
-| Card | 616 | 10.1% | £16.95 | £27.13 |
-| Send | 268 | 9.3% | £9.29 | £36.04 |
-| Receive | 298 | 8.1% | £1.45 | £27.95 |
-| **Invest** | **30** | **46.7%** | £7.06 | £17.39 |
-| Other | 119 | 18.5% | £14.39 | £30.80 |
+## Revenue differences across segments
 
-**Receive-money drop-offs** have the most extreme LTV gap — median £1.45 vs £28 for converted. These are customers who barely engaged at all.
+While segments don't differ in *whether* they convert, they do differ in *how valuable* they become:
 
-## Directional Segment Differences
+### High-value segments (by lifetime revenue)
 
-### Card Awareness (among send/receive users)
-
-| Awareness | Drop-off | Converted |
+| Segment | Median revenue | Why it matters |
 |---|---|---|
-| Didn't know about card | 34.7% | 19.5% |
-| Knew, ordered | 24.5% | 31.9% |
-| Knew, don't need | 40.8% | 48.5% |
+| Recent movers (<6 months) | £42 | 60% above average — acute need |
+| Retirees abroad | £70 | Small group (n=14) but very high value |
+| Sending to a business | £55 | 2x person-to-person senders |
+| 5+ countries lived in | £44 | Most internationally mobile |
 
-Drop-offs are significantly less aware of the card product.
+### Card awareness gap (among send/receive users)
 
-### Signup Ease by Task (drop-offs only)
-
-| Task | Drop-off ease rating | Converted ease rating |
+| Card awareness | n | Median revenue |
 |---|---|---|
-| Card | 4.39 | 4.47 |
-| Send | 4.04 | 4.28 |
-| **Receive** | **3.62** | **4.41** |
-| Invest | 4.50 | 4.31 |
-| Other | 4.23 | 4.38 |
+| Ordered a card | 177 | £34.50 |
+| Know about it, don't need | 271 | £26.57 |
+| **Don't know Wise has a card** | **118** | **£17.08** |
 
-Receive-money drop-offs experience the most friction during signup — a full point lower on the 5-point ease scale.
+21% of send/receive users are unaware of the card. They generate half the revenue of those who ordered one. This is a cross-sell opportunity, not a segment problem.
 
-## Demographic Profiles (Full Sample)
+### Expat vs non-expat
 
-### Age
-
-| Age | n | % | Median LTV |
+| Status | n | Median revenue | Cross-currency adoption |
 |---|---|---|---|
-| 18-24 | 231 | 17.7% | £24.14 |
-| 25-34 | 289 | 22.1% | £27.70 |
-| 35-44 | 201 | 15.4% | £23.28 |
-| 45-54 | 220 | 16.8% | £28.38 |
-| 55-64 | 204 | 15.6% | £27.34 |
-| 65+ | 161 | 12.3% | £26.00 |
+| Non-expat (1 country) | 554 | £23.15 | 63% |
+| Expat (2+ countries) | 777 | £30.18 | 59% |
 
-No age group is disproportionately affected by drop-off or has meaningfully different LTV.
+Expats generate 30% more revenue (p=0.0001) but interestingly have slightly *lower* cross-currency adoption. Non-expats who do transact cross-currency are doing so for travel spend.
 
-### Expat Status
+---
 
-| Status | n | Median LTV | XCcy adoption |
-|---|---|---|---|
-| Non-expat (1 country) | 554 | £23.15 | 63.2% |
-| Expat (2+ countries) | 777 | £30.18 | 59.0% |
+## What this means for the team
 
-Expats have higher LTV (p=0.0001) but similar adoption rates. Interestingly, non-expats have slightly higher cross-currency adoption — likely domestic card users who occasionally send money abroad.
+1. **Don't build segment-specific onboarding** — drop-off is uniform across age/geography/experience
+2. **Do investigate the Invest/Assets journey** separately — it has a structural product-fit problem
+3. **Do surface the card** to send/receive users early — the revenue difference is significant and directly addressable
+4. **Do prioritise recent movers** if you can identify them — they're your most valuable new customers
 
-[← Back to Index](index.md)
+[← Back to home](index.md)

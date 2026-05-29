@@ -1,75 +1,100 @@
-# Correlational Analysis
+---
+layout: default
+title: Statistical Relationships
+---
 
-## Spearman Correlations: Survey Variables → Lifetime Revenue
+# Statistical Relationships
 
-| Variable | rho | p | Significance |
+What predicts higher lifetime revenue? What predicts drop-off? How do friction points relate to each other?
+
+---
+
+## What predicts higher lifetime revenue?
+
+### Strongest predictors (binary indicators)
+
+| Indicator | Correlation | p-value | Median with | Median without |
+|---|---|---|---|---|
+| Aware of Wise card | +0.13 | <0.0001 | £30 | £25 |
+| Experienced hesitation | +0.11 | 0.0001 | £33 | £26 |
+| Is expat (2+ countries) | +0.09 | 0.002 | £30 | £23 |
+| Regular transaction intent | +0.09 | 0.002 | £34 | £24 |
+| Completed task | +0.06 | 0.03 | £28 | £12 |
+| Had signup difficulty | -0.05 | 0.05 | £19 | £28 |
+
+### Continuous measures
+
+| Variable | Correlation | p-value | Direction |
 |---|---|---|---|
-| Completed task (Q11) | -0.182 | <0.0001 | *** |
-| Countries lived in (Q2.1) | +0.116 | <0.0001 | *** |
-| Signup ease (Q4) | +0.101 | 0.0002 | *** |
-| Age (Q1) | +0.077 | 0.006 | ** |
-| Frequency intent (Q10) | -0.046 | 0.28 | ns |
-| Help needed (Q19) | +0.031 | 0.26 | ns |
-| First task (Q6) | -0.018 | 0.52 | ns |
+| Completed task (Q11) | -0.18 | <0.0001 | Completing → higher revenue |
+| Countries lived in | +0.12 | <0.0001 | More countries → higher revenue |
+| Signup ease | +0.10 | 0.0002 | Easier signup → higher revenue |
+| Age | +0.08 | 0.006 | Older → slightly higher revenue |
 
-## Spearman Correlations: Survey Variables → Lifetime Volume
+### Not predictive of revenue
 
-| Variable | rho | p | Significance |
+- Prior provider experience (p=0.41)
+- Needing external help (p=0.90)
+- Frequency intent as a raw ordinal variable (p=0.28)
+
+---
+
+## What predicts drop-off?
+
+| Predictor | Effect size (Cramér's V) | p-value |
+|---|---|---|
+| **Task type** | **0.19** | **<0.0001** |
+| Signup ease | 0.10 | 0.014 |
+| Countries lived in | 0.07 | 0.23 |
+| Age | 0.06 | 0.55 |
+| Prior provider | 0.02 | 0.50 |
+
+Only task type has a meaningful effect. A Cramér's V of 0.19 is a small-to-medium effect — driven almost entirely by Invest users (47% drop-off vs ~10% for everything else).
+
+---
+
+## How do friction points cluster?
+
+| Variable 1 | Variable 2 | Correlation | Meaning |
 |---|---|---|---|
-| Countries lived in (Q2.1) | +0.176 | <0.0001 | *** |
-| First task (Q6) | +0.139 | <0.0001 | *** |
-| Completed task (Q11) | -0.147 | <0.0001 | *** |
-| Signup ease (Q4) | +0.086 | 0.002 | ** |
-| Age (Q1) | +0.043 | 0.12 | ns |
+| Signup ease | Hesitation | -0.14 | Harder signup → more hesitation |
+| Task completion | Help needed | -0.12 | Not completing → needed more help |
+| Signup ease | Task completion | -0.09 | Harder signup → less likely to complete stated task |
+| Age | Hesitation | +0.09 | Older → more likely to hesitate |
+| Age | Help needed | -0.08 | Older → less likely to need help |
 
-## Point-Biserial Correlations: Binary Indicators → Revenue
+The friction cluster story: harder signup leads to hesitation, which leads to slower adoption — but not necessarily to lower value. Hesitation and difficulty are correlated but have **opposite** relationships with revenue.
 
-| Indicator | r_pb | p | Yes median | No median | Direction |
-|---|---|---|---|---|---|
-| Card-aware (send/receive) | +0.128 | <0.0001 *** | £30.45 | £25.38 | Awareness → higher |
-| **Hesitated** | **+0.109** | **0.0001 **** | **£32.79** | **£25.65** | **Hesitation → higher** |
-| Is expat (2+ countries) | +0.086 | 0.002 ** | £30.18 | £23.15 | Expat → higher |
-| Regular intent (Q10=2) | +0.085 | 0.002 ** | £33.54 | £24.21 | Regular → higher |
-| Completed task (Q11=1) | +0.060 | 0.03 * | £28.27 | £12.16 | Completed → higher |
-| Had signup difficulty | -0.054 | 0.05 | £19.42 | £27.51 | Difficulty → lower |
-| Used provider before | -0.044 | 0.11 | £28.99 | £25.75 | ns |
-| Needed external help | -0.003 | 0.90 | £24.21 | £26.69 | ns |
+---
 
-## Inter-Variable Correlations
+## The "regularly" question — what the data actually shows
 
-Which friction points cluster together?
+The team flagged concern about how respondents interpreted Q10 ("Was that a one-time thing, or do you need it regularly?").
 
-| Var 1 | Var 2 | rho | p |
-|---|---|---|---|
-| Ease (Q4) | Hesitated (Q12) | -0.136 | <0.001 *** |
-| Completed (Q11) | Help needed (Q19) | -0.124 | <0.001 *** |
-| Ease (Q4) | Completed (Q11) | -0.089 | 0.001 ** |
-| Age (Q1) | Hesitated (Q12) | +0.085 | 0.003 ** |
-| Age (Q1) | Help needed (Q19) | -0.081 | 0.003 ** |
-| Countries (Q2.1) | Ease (Q4) | -0.070 | 0.011 * |
+### The signal
 
-**Key cluster:** Harder signup → more hesitation (rho=-0.14). But hesitators end up with higher LTV — they pushed through.
+| Answer | Median revenue | Days to first job |
+|---|---|---|
+| One time | £19 | 0 days |
+| Regular | £34 | 0 days |
+| Not sure | £13 | 1 day |
 
-## What Predicts Drop-Off? (Effect Sizes)
+### The concern
 
-| Predictor | Chi² | p | Cramér's V |
-|---|---|---|---|
-| **First task (Q6)** | **49.58** | **<0.0001** | **0.193 *** |
-| Signup ease (Q4) | 12.53 | 0.014 | 0.097 * |
-| Countries lived in | 6.85 | 0.23 | 0.072 |
-| Age group | 4.97 | 0.55 | 0.062 |
-| Used prior provider | 0.46 | 0.50 | 0.019 |
+- "Regular" respondents already adopted at day 0 — they may be describing what they *already do*, not what they *intend* to do
+- The survey was sent ~30 days after registration; many had already transacted multiple times
+- The strong LTV signal (r=0.085, p=0.002) may be tautological: "I use Wise regularly" → of course they have higher LTV
 
-Only task type (V=0.19) approaches a "medium" effect. All other predictors are small or non-significant.
+### Recommendation
 
-## Note on Q10 ("Regularly") Interpretation
+Treat Q10 as a **descriptive segment** (who are the regular users?), not a **predictive signal** (regularity causes higher LTV). If the team wants to use frequency intent as an onboarding signal, the question would need to be asked *before* first transaction, not 30 days after registration.
 
-The "regular transaction" answer correlates with higher LTV (r_pb=0.085, p=0.002) and faster adoption (median 0 days vs 1 day). However:
+---
 
-- The survey was sent to customers who registered ~30 days prior
-- By the time they answered, many had already transacted multiple times
-- "Regularly" may have been interpreted as "I already do this regularly" rather than "I intend to do this regularly"
-- Behavioural data (DAYS_TO_FIRST_JOB = 0 for "regular" respondents) supports this: they'd already adopted before the survey arrived
-- **Recommendation:** Treat Q10 as a descriptive segment, not a predictive signal. Follow-up interviews could clarify how participants interpreted the question.
+## Effect sizes in context
 
-[← Back to Index](index.md)
+All survey-to-LTV correlations are in the **rho = 0.05–0.18 range**. These are real, statistically significant relationships in a large sample, but they explain only 1-3% of variance in revenue individually. Customer value is driven primarily by factors outside this survey (corridor, business vs personal needs, economic circumstances).
+
+The survey's value is in identifying **addressable friction** and **prioritising which friction to fix** — not in predicting individual customer value.
+
+[← Back to home](index.md)

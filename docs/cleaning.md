@@ -1,64 +1,56 @@
-# Data Cleaning & Quality
+---
+layout: default
+title: Data Cleaning
+---
+
+# How We Cleaned the Data
+
+## What we removed
+
+| Step | Removed | Running total |
+|---|---|---|
+| Started with | — | 1,513 responses |
+| Removed abandoned (didn't finish) | 136 | 1,377 |
+| Removed poor quality (very fast + low variability) | 1 net new | 1,376 |
+| Removed declined consent | 45 | **1,331 final** |
+
+Total removal rate: 12% — within normal range for survey data.
+
+## How we identified poor quality responses
+
+We used a **converging evidence** approach (Meade & Craig, 2012): no single indicator can get you excluded. You need to fail on 2+ independent quality checks.
+
+| Check | What it measures | Threshold | Flagged |
+|---|---|---|---|
+| Speed | Completed impossibly fast | < 53 seconds | 77 (5%) |
+| Response variability | Same answer pattern throughout | 5th percentile | 73 (5%) |
+| Straightlining | Same answer code ≥80% of questions | 80%+ | 1 |
+| Open-end quality | Gibberish or keyboard spam | Heuristic | 1 |
+
+16 respondents failed on both speed AND variability — all completed in under 53 seconds with near-identical response patterns. 15 of these had also abandoned the survey (already removed).
+
+The remaining 120 single-flag respondents were retained. Single-flag ≠ bad data; it could be someone who legitimately finished quickly or happened to pick similar answer codes.
+
+## Missing data
+
+Almost all missing data is **by design** — the survey has extensive branching logic where questions only appear based on prior answers. For example:
+- Q5 (what was difficult?) only shows if you said signup was difficult
+- Q7 (why a card?) only shows if you said your first task was the card
+- Q13/Q14 only show if you said you didn't complete your task
+
+No imputation was needed.
+
+## What we added
+
+After cleaning, we enriched each respondent with:
+- **Lifetime revenue and volume** from `RPT_CORE_ANALYTICS.PROFILE_MONEY_MOVEMENT`
+- **Adoption milestones** from `RPT_PRODUCT.CONSUMER_ONBOARDING_FLOW`
+- **Conversion flag** (converted vs drop_off) based on Q11
+- **Friction score** (0-4) combining difficulty, hesitation, and help-needed indicators
+- **Sample adequacy flag** noting the drop-off sub-sample is underpowered for segmentation
 
 ## Pipeline
 
-Used Bryan Carroll's [Survey Quality Agent](https://github.com/bcarroll-wise/Quantitative-UXR) — a converging-evidence pipeline where no single indicator is sufficient for exclusion.
+Data cleaning used Bryan Carroll's [Survey Quality Agent](https://github.com/bcarroll-wise/Quantitative-UXR).
 
-## Exclusion Summary
-
-| Step | Removed | Remaining |
-|---|---|---|
-| Raw responses | — | 1,513 |
-| Abandoned (Finished=0) | 136 | 1,377 |
-| 2+ quality flags (speed + IRV) | 1 (net new) | 1,376 |
-| Declined consent (Q30=5) | 45 | 1,331 |
-| **Final clean sample** | **182 total (12.1%)** | **1,331** |
-
-## Quality Indicators Applied
-
-| Indicator | Threshold | Flagged | Notes |
-|---|---|---|---|
-| Speed | < 53s (33% of median) | 77 (5.1%) | Below 33% of median completion time |
-| Straightlining | >= 80% | 1 (0.1%) | Low relevance — questions are categorical, not scales |
-| IRV (low variability) | 5th percentile | 73 (4.8%) | Same caveat — choice codes, not Likert |
-| Open-end quality | Heuristic fail | 1 (0.1%) | "Nothing"/"No" treated as legitimate |
-| Attention checks | N/A | — | No attention checks in survey design |
-
-## Converging Evidence Rule
-
-- 2+ independent flags → auto-exclude (16 respondents, all speed + IRV)
-- 1 flag → retain (120 respondents)
-- 15 of 16 multi-flagged overlapped with abandoned responses
-
-## Missing Data
-
-**Mechanism: Missing By Design (branching logic)**
-
-All high-missingness columns are conditional survey questions that only display based on prior answers. No imputation needed.
-
-| Pattern | Explanation |
-|---|---|
-| Q5 missing (86%) | Only shown if signup was difficult/neutral |
-| Q7 missing (62%) | Only shown if wanted Wise card |
-| Q8/Q9 missing (78-80%) | Only shown for send/receive intent |
-| Q13/Q14 missing (98%) | Only shown if didn't complete task |
-
-The 45 missing on core questions = respondents who declined consent (removed).
-24 with missing Q30 skipped consent but completed the full survey (retained).
-
-## Wave Analysis (Nonresponse Bias)
-
-| Comparison | Early (Oct 22–Nov 3) | Late (Nov 3–Nov 25) | Difference |
-|---|---|---|---|
-| Signup ease (Q4) | 4.44 | 4.32 | d=0.14, negligible |
-| First task (Q6) | More card-focused | More send-focused | d=0.14, negligible |
-
-**Conclusion:** No meaningful nonresponse bias detected. No weighting recommended.
-
-## Respondent Pool
-
-- Age: Well distributed 18–65+ (no concentration)
-- 58% found signup "extremely easy" — expected positive skew for registered customers
-- 89% completed their task — sample skews toward converted (expected per research plan)
-
-[← Back to Index](index.md)
+[← Back to home](index.md)
