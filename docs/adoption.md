@@ -65,20 +65,22 @@ This is the most important table in this analysis:
 
 ### Why the discrepancy?
 
+We checked the timestamps: **106 of 109 "not yet" respondents adopted *before* answering the survey** (median 61 days before). All 24 "No" respondents who adopted also did so before. This is not a timing artefact — they were not adopting after the survey.
+
 The survey asked: *"Did you manage to [get a card / send money / receive money / etc.] using Wise?"*
 
 The onboarding flow tracks: *"Has this customer completed any job adoption?"*
 
 These measure different things:
-1. A customer who came to send money but ended up using the card → says "No" to Q11, but has adopted in Snowflake
-2. A customer who adopted *after* completing the survey → says "Not yet" at survey time, adopted by the time we pulled data
-3. A customer who uses the balance/MCA but doesn't consider that "completing" what they came for
+1. A customer who came to send money but activated via MCA/card → says "No" to Q11, but has adopted in Snowflake
+2. A customer who uses the balance/MCA but doesn't consider that "completing" what they came for
+3. Only 3 respondents adopted *after* the survey — this is almost entirely a product-mismatch story, not a timing story
 
 ### What this means
 
-**The "drop-off problem" is largely an intent-product mismatch problem, not an adoption failure.** Customers arrive wanting one thing, discover or are guided toward another, and end up using Wise differently than planned. The 147 self-reported "drop-offs" shrink to ~27 true non-adopters when measured behaviourally.
+**The "drop-off problem" is largely an intent-product mismatch problem, not an adoption failure.** These customers had already used Wise before they even took the survey — they just hadn't used it for the specific thing they originally came for. The 147 self-reported "drop-offs" shrink to ~27 true non-adopters when measured behaviourally.
 
-This doesn't mean there's no problem — those 27 are genuinely unconverted, and the 88 who say "not yet" but have adopted are likely underusing Wise relative to their intent. But the framing should shift from "how do we stop people leaving" to "how do we help people find the right product for their need."
+This doesn't mean there's no problem — those 27 are genuinely unconverted, and the ~106 who say "not yet" despite having already adopted are telling us their original need is still unmet. But the framing should shift from "how do we stop people leaving" to "how do we help people complete the specific job they came for."
 
 ---
 
