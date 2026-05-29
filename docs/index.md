@@ -17,7 +17,9 @@ title: Home
 
 ### 1. Most "drop-offs" aren't actually lost
 
-We surveyed customers ~30 days after registration. 147 said they hadn't completed their intended task. But when we checked the behavioural data, **81% of them had already adopted a Wise product *before* they took the survey** — a median of 61 days earlier. They'd used Wise for a different product than they originally intended (e.g., came to send money but activated via MCA/card). The true non-adopter count is ~27 people, not 147.
+We surveyed customers ~30 days after registration. 147 said they hadn't completed their intended task. But when we checked the behavioural data, **81% of them had already adopted a Wise product *before* they took the survey** — a median of 61 days earlier. They'd used Wise for a different product than they originally intended (e.g., came to send money but activated via MCA/card).
+
+**What this means for the product:** The onboarding flow is successfully getting people to activate (90% adopt something), but it's not always connecting them to the specific job they came for. 92% activate via MCA — even customers who came to send, receive, or invest. These customers are "active" by our internal metrics but report their original need as unmet. The opportunity isn't to increase adoption — it's to shorten the path from registration to the customer's *stated* job, not just any job.
 
 ### 2. The people who hesitate the most are your best customers
 

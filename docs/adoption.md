@@ -78,9 +78,13 @@ These measure different things:
 
 ### What this means
 
-**The "drop-off problem" is largely an intent-product mismatch problem, not an adoption failure.** These customers had already used Wise before they even took the survey — they just hadn't used it for the specific thing they originally came for. The 147 self-reported "drop-offs" shrink to ~27 true non-adopters when measured behaviourally.
+**The "drop-off problem" is largely an intent-product mismatch problem, not an adoption failure.** These customers had already used Wise before they even took the survey — they just hadn't used it for the specific thing they originally came for. The ~106 who say "not yet" despite having already adopted are telling us their original need is still unmet.
 
-This doesn't mean there's no problem — those 27 are genuinely unconverted, and the ~106 who say "not yet" despite having already adopted are telling us their original need is still unmet. But the framing should shift from "how do we stop people leaving" to "how do we help people complete the specific job they came for."
+**What this means on a product level:**
+
+The onboarding flow is effective at getting people to activate *something* — 90% adopt, 92% via MCA. But the flow funnels nearly everyone through the same MCA activation path regardless of what they came for. A customer who arrived to send money to a family member, or to get a card for a trip, ends up activating a multi-currency account — and from their perspective, they haven't done what they came to do.
+
+This creates a gap between internal success metrics (adoption = ✓) and customer-perceived success (original job = incomplete). The framing should shift from "how do we stop people leaving" to "how do we route people to their stated job faster." The opportunity is in intent-matched onboarding paths — not a single funnel that happens to activate MCA along the way.
 
 ---
 
