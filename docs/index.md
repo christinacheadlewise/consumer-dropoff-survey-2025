@@ -1,3 +1,8 @@
+---
+layout: default
+title: Home
+---
+
 # Consumer Onboarding Drop-off Survey 2025 — Analysis
 
 ## Top Points of Interest
